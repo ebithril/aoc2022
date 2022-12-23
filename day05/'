@@ -30,29 +30,8 @@ fn part1() {
             continue;
         }
 
-        if !line.starts_with("move") {
-            continue;
-        }
-
-
-        let whitespace_indicies: Vec<usize> = line.chars().enumerate().filter(|(_, c)| *c == ' ').map(|(i, _)| i).collect();
-        let number_to_move: usize = (&line[whitespace_indicies[0]+1..whitespace_indicies[1]]).parse().unwrap();
-        let from_pile: usize = (&line[whitespace_indicies[2]+1..whitespace_indicies[3]]).parse().unwrap();
-        let to_pile: usize = (&line[whitespace_indicies[4]+1..]).parse().unwrap();
-
-        for _ in 0..number_to_move {
-            let c = piles[from_pile-1].pop_back().unwrap();
-            piles[to_pile-1].push_back(c);
-        }
+        return;
     }
-
-    let mut result = String::from("");
-
-    for pile in piles {
-        result.push(*pile.back().unwrap());
-    }
-
-    println!("{}", result);
 }
 
 fn part2() {
